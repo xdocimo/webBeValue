@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Planta un Árbol</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM7tNkzp7Ywp0YXob1Oa6c3MQD5N5RAj8yH1pD" crossorigin="anonymous">
+    <style>
+        :root {
+            --dark-green: #1a2f1a;
+            --light-green: #2ecc71;
+            --black: #121212;
+            --white: #ffffff;
+            --line-color: #2ecc71; /* Color de línea para los separadores */
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--dark-green);
+            padding: 20px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--light-green);
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-green);
+        }
+
+        .nav-links .fa-instagram {
+            margin-left: 10px;
+        }
+        
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(rgba(115, 115, 115, 0.8), rgba(26, 47, 26, 0.8)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2213&q=80');
+            background-size: cover;
+            background-position: center;
+            animation: slide 30s infinite;
+        }
+        
+
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta {
+            background-color: var(--light-green);
+            color: var(--black);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta:hover {
+            background-color: #27ae60;
+        }
+        
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .line-separator {
+            height: 2px;
+            background-color: var(--line-color);
+            margin: 40px 0;
+        }
+        
+        .section {
+    padding: 40px;
+    background-color: #1b1b1b; /* Dark background */
+    color: #fff; /* White text */
+}
+
+.features {
+    display: flex;
+    justify-content: space-between; /* Aligns items in a row with equal spacing */
+}
+
+.feature {
+    background-color: #2c3e50; /* Darker background for features */
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1; /* Allows features to grow and fill space equally */
+    margin: 0 10px; /* Adds spacing between feature boxes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for depth */
+}
+
+.feature h3 {
+    margin: 10px 0;
+}
+
+.feature i {
+    font-size: 24px; /* Icon size */
+    margin-right: 10px; /* Space between icon and text */
+    color: #2ecc71; /* Color of the icons */
+}
+        
+        .footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .instagram-widget {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+        }
+        
+        .instagram-widget p {
+            margin-right: 10px;
+            font-size: 1.5rem;
+            color: var(--light-green);
+        }
+
+        .partners {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .partner {
+            background-color: var(--dark-green);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex-basis: calc(25% - 20px);
+            margin: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                flex-basis: 100%;
+            }
+            .partner {
+                flex-basis: 100%;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">EcoTrack</div>
+                <div class="nav-links">
+                    <a href="#about">Sobre Nosotros</a>
+                    <a href="#features">Características</a>
+                    <a href="#donate">Donar</a>
+                    <a href="#mission">Misión</a>
+                    <a href="#partners">Empresas Asociadas</a>
+                    <a href="#contact">Contacto</a>
+                    <a href="https://instagram.com" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-slider"></div>
+        <div class="hero-content">
+            <h1>Planta un Árbol con EcoTrack</h1>
+            <p>Con cada donación, ayudas a crear un futuro más verde y sostenible.</p>
+            <a href="#donate" class="cta">¡Haz tu donación ahora!</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>¿Cómo Funciona?</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <h3>1. Elige Tu Donación</h3>
+                <p>Selecciona el monto que deseas donar y elige el proyecto de reforestación que te gustaría apoyar.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-credit-card"></i>
+                <h3>2. Realiza Tu Donación</h3>
+                <p>Realiza el pago de forma segura a través de nuestra plataforma.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-tree"></i>
+                <h3>3. Haz la Diferencia</h3>
+                <p>Recibirás un certificado de reforestación y actualizaciones sobre el impacto de tu donación.</p>
+            </div>
+        </div>
+        <div class="line-separator"></div>
+    </section>
+    
+
+    <section id="donate" class="section">
+        <h2>Tu Donación Hace la Diferencia</h2>
+        <p>Con tu generosa contribución, podemos plantar árboles y restaurar ecosistemas. Cada árbol cuenta en la lucha contra el cambio climático. Aquí hay algunos beneficios de donar:</p>
+        <ul>
+            <li>Contribuir a la reducción de CO2 en la atmósfera.</li>
+            <li>Mejorar la calidad del aire y el agua.</li>
+            <li>Crear hábitats para la vida silvestre.</li>
+        </ul>
+        <div class="line-separator"></div>
+    </section>
+
+    <section id="mission" class="section">
+        <h2>Nuestra Misión</h2>
+        <p>En EcoTrack, nuestra misión es crear un mundo más verde y sostenible a través de la reforestación y la educación ambiental. Trabajamos para restaurar ecosistemas y fomentar un cambio positivo en las comunidades.</p>
+        <div class="line-separator"></div>
+    </section>
+
+    <section class="instagram-widget">
+        <p>Síguenos en Instagram:</p>
+        <a href="https://instagram.com/BeValue" target="_blank">@BeValue</a>
+    </section>
+
+    <section id="partners" class="section">
+        <h2>Empresas Asociadas</h2>
+        <div class="partners">
+            <div class="partner">Empresa 1</div>
+            <div class="partner">Empresa 2</div>
+            <div class="partner">Empresa 3</div>
+            <div class="partner">Empresa 4</div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 EcoTrack. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
